@@ -1,1 +1,1 @@
-Learning objects, values, refernce, assignment, mutable and immutable types
+Learning python objects, classes, references, etc 
