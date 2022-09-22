@@ -1,1 +1,0 @@
-Making hash tables, phew!
