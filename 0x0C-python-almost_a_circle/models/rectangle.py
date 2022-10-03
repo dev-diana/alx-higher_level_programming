@@ -79,3 +79,30 @@ class Rectangle(Base):
             print("")
         for j in range(self.__height):
             print(self.__x * " " + '#' * self.__width)
+            
+    def update(self, *args, **kwargs):
+        """ This method assigns an argument to each attribute """
+        if args:
+            for arguments in range(len(args)):
+                if arguments == 0:
+                    self.id = args[arguments]
+                if arguments == 1:
+                    self.__width = args[arguments]
+                if arguments == 2:
+                    self.__height = args[arguments]
+                if arguments == 3:
+                    self.__x = args[arguments]
+                if arguments == 4:
+                    self.__y = args[arguments]
+
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    """ Returns printable string representation
+    of an instance """
+    def __str__(self):
+        """ It returns [Rectangle] (<id>) <x>/<y> - <width>/<height> """
+        return ("[{}] ({}) {:d}/{:d} - {:d}/{:d}".format(
+            self.__class__.__name__, self.id, self.__x,
+            self.__y, self.__width, self.__height))
