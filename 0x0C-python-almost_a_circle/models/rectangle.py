@@ -4,16 +4,16 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """ Class Rectangle that inherits from class Base """
+    """ Class Rectangle that inherist from class Base """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ Class constructor """
+        """ Class construnctor """
         super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        
-   """ WIDTH GETTER, SETTER """
+
+    """ WIDTH GETTER, SETTER """
     @property
     def width(self):
         return (self.__width)
@@ -65,21 +65,19 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = y
 
-        
     """ Public methods """
 
     def area(self):
         """ Return the area value of the Rectangle instance """
         return (self.__width * self.__height)
-    
-    
+
     def display(self):
         """ Prints in stdout the Rectangle instance with the character # """
         for i in range(self.__y):
             print("")
         for j in range(self.__height):
             print(self.__x * " " + '#' * self.__width)
-            
+
     def update(self, *args, **kwargs):
         """ This method assigns an argument to each attribute """
         if args:
@@ -106,3 +104,8 @@ class Rectangle(Base):
         return ("[{}] ({}) {:d}/{:d} - {:d}/{:d}".format(
             self.__class__.__name__, self.id, self.__x,
             self.__y, self.__width, self.__height))
+
+    def to_dictionary(self):
+        """ Returns the dictionary representation of a Rectangle"""
+        return ({'id': self.id, 'x': self.x, 'height': self.height,
+                'width': self.width, 'y': self.y})
